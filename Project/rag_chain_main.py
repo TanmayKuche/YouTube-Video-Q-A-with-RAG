@@ -8,7 +8,7 @@ from langchain_core.runnables import RunnableParallel, RunnablePassthrough, Runn
 from langchain_core.output_parsers import StrOutputParser
 import os
 
-os.environ["HUGGINGFACEHUB_API_TOKEN"] = "hf_xWa****jpfxtZZ****LWSFu****UKzLJM" #my acess token
+os.environ["HUGGINGFACEHUB_API_TOKEN"] = "hf_xWa****tZZ****LFu****UzM" #my acess token
 def load_transcript_and_index(video_id: str):
     api = YouTubeTranscriptApi()
     transcript_list = api.fetch(video_id, languages=["en"])
@@ -54,5 +54,6 @@ def build_rag_chain(retriever):
 
     parser = StrOutputParser()
     main_chain = parallel_chain | prompt | model | parser
+
 
     return main_chain
